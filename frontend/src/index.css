@@ -1,0 +1,102 @@
+body {
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 20px;
+}
+
+.App {
+  text-align: center;
+}
+
+ol,
+ul {
+  padding-left: 30px;
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+
+.square {
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+
+.square:focus {
+  outline: none;
+}
+
+.kbd-navigation .square:focus {
+  background: #ddd;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.game-info {
+  margin-left: 20px;
+}
+
+/* ------------------------------------------------------------------------- */
+/* snake -game */
+
+.snake-app {
+  text-align: center;
+  background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: white;
+}
+
+.outerBorder {
+  display: inline-block;
+  outline: 2px solid rgb(134, 154, 189);
+}
+
+.board {
+  outline: 2px solid rgb(134, 154, 189);
+}
+
+.row {
+  height: 36px;
+}
+
+.cell {
+  width: 36px;
+  height: 36px;
+  /* outline: 1px solid rgb(134, 154, 189); */
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.snake-cell {
+  background-color: green;
+}
+
+.food-cell {
+  background-color: red;
+}
+
+.reversing-cell {
+  background-color: blueviolet;
+}

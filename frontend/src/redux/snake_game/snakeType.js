@@ -1,0 +1,1 @@
+export const UPDATE_SCORE_snake = 'UPDATE_SCORE_snake'

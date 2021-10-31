@@ -1,0 +1,1 @@
+export const UPDATE_SCORE_2048 = 'UPDATE_SCORE_2048'
