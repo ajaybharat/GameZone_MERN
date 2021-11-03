@@ -1,30 +1,36 @@
 import axios from "axios";
-import { useContext, useRef } from "react";
-import { Link } from "react-router-dom";
-// import { Context } from "../../context/Context";
+import { useContext, useRef, useState } from "react";
+import { Link,Redirect } from "react-router-dom";
 import "./login.css";
+import { connect } from 'react-redux'
+import { fetchUsers,fetchUsersSuccess,fetchUsersFailure,fetchUsersRequest } from '../../redux/index'
 
-export default function Login() {
+function Login(props) {
   const userRef = useRef();
   const passwordRef = useRef();
+  const [redirectstate,setredirectstate] = useState(false);
 //   const { dispatch, isFetching } = useContext(Context);
 
   const handleSubmit = async (e) => {
-    debugger;
     e.preventDefault();
-    // dispatch({ type: "LOGIN_START" });
+    props.fetchuserreq();
     try {
-      debugger;
-      const res1 = await axios.get('https://node-rest-api7.herokuapp.com/api/users');
-      res1.data[0].name;
       const res = await axios.post("/auth/login", {
-        username: userRef.current.value,
+        email: userRef.current.value,
         password: passwordRef.current.value,
       });
-      debugger;
-    //   dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+      let snakegamescore = res.data.sankeGameScore;
+      let game2048 = res.data.Game2048Score;
+      console.log(snakegamescore);
+      console.log(game2048);
+      localStorage.setItem('user',JSON.stringify(res.data));
+      localStorage.setItem('snakegame',snakegamescore);
+      localStorage.setItem('2048game',game2048);
+      props.fetchsuccess(res.data);
+      setredirectstate(true);
+      window.location.replace("/");
     } catch (err) {
-    //   dispatch({ type: "LOGIN_FAILURE" });
+      props.fetchfailure(err);
     }
   };
 
@@ -32,11 +38,11 @@ export default function Login() {
     <div className="login">
       <span className="loginTitle">Login</span>
       <form className="loginForm" onSubmit={handleSubmit}>
-        <label>Username</label>
+        <label>Email</label>
         <input
           type="text"
           className="loginInput"
-          placeholder="Enter your username..."
+          placeholder="Enter your email..."
           ref={userRef}
         />
         <label>Password</label>
@@ -57,4 +63,22 @@ export default function Login() {
       </button>
     </div>
   );
+  
 }
+
+const mapStatetoProps = state => {
+  return {
+      Users: state.user
+  }
+}
+
+const mapDispatchtoProps = dispatch => {
+  return {
+      fetchuserreq: () => dispatch(fetchUsersRequest()),
+      fetchsuccess: (payload) => dispatch(fetchUsersSuccess(payload)),
+      fetchfailure: () => dispatch(fetchUsersFailure())
+  }
+}
+
+
+export default connect(mapStatetoProps, mapDispatchtoProps)(Login)

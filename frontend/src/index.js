@@ -6,11 +6,13 @@ import App from './App'
 import './App.css';
 import store from './redux/store';
 import { Provider } from 'react-redux';
+import Logout from './components/logout'
 
 
 ReactDOM.render(
   <Provider store={store}>
       <div className="App">
+        <header>Navigation <div style={{float:'right'}}><Logout /></div></header>
         <App />
       </div>
     </Provider>,

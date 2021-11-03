@@ -2,7 +2,7 @@ import { FETCH_USERS_FAILURE,FETCH_USERS_REQUEST,FETCH_USERS_SUCCESS } from "./u
 
 const initialState = {
     loading: false,
-    users: [],
+    user: [],
     error: ''
 }
 
@@ -16,13 +16,13 @@ const userReducer = (state = initialState, action) => {
         case FETCH_USERS_SUCCESS:
             return {
                 loading: false,
-                users: action.payload,
+                user: action.payload,
                 error: ''
             }
         case FETCH_USERS_FAILURE:
             return {
                 loading: false,
-                users: [],
+                user: [],
                 error: action.payload
             }
         default: return state

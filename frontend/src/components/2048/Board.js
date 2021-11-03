@@ -6,10 +6,17 @@ import Block from './Block';
 import Swipe from "react-easy-swipe";
 import { update2048Score } from '../../redux';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 
 const Board = (props) => {
   const High_score = props.HighSocre;
+
+  
+useEffect(() => {
+  let scorefromlocal = localStorage.getItem('2048game');
+  props.updateScore(scorefromlocal);
+}, [])
 
     const [data,setdata] = useState([
         [0, 0, 0, 0],
@@ -276,6 +283,7 @@ const Board = (props) => {
       if(sum > High_score)
       {
         props.updateScore(sum);
+        localStorage.setItem('2048game',sum);
       }
   }
 

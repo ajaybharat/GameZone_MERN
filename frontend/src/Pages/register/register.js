@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import "./register.css";
 
 export default function Register() {
-  const [username, setUsername] = useState("");
+  const [name, setname] = useState("");
+  const [phone, setphone] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
@@ -14,7 +15,8 @@ export default function Register() {
     setError(false);
     try {
       const res = await axios.post("/auth/register", {
-        username,
+        name,
+        phone,
         email,
         password,
       });
@@ -27,12 +29,19 @@ export default function Register() {
     <div className="register">
       <span className="registerTitle">Register</span>
       <form className="registerForm" onSubmit={handleSubmit}>
-        <label>Username</label>
+        <label>Name</label>
         <input
           type="text"
           className="registerInput"
-          placeholder="Enter your username..."
-          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Enter your name..."
+          onChange={(e) => setname(e.target.value)}
+        />
+        <label>Phone</label>
+        <input
+          type="text"
+          className="registerInput"
+          placeholder="Enter your Mobile Number..."
+          onChange={(e) => setphone(e.target.value)}
         />
         <label>Email</label>
         <input
