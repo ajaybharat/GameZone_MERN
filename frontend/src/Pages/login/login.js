@@ -23,7 +23,7 @@ function Login(props) {
     props.fetchuserreq();
     try {
       
-      const res = await axios.post("/auth/login", {
+      const res = await axios.post("https://gamezone-user-api.herokuapp.com/api/auth/login", {
         email: userRef.current.value,
         password: passwordRef.current.value,
       });
