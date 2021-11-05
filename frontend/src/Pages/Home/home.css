@@ -1,0 +1,63 @@
+.game {
+  width: 385px;
+  margin: 0px 25px 40px 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.gameImg {
+  width: 385px;
+  height: 280px;
+  object-fit: revert;
+  border-radius: 7px;
+}
+
+.gameInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gameTitle {
+  font-family: "Josefin Sans", Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  margin-top: 15px;
+  cursor: pointer;
+  color: black !important;
+}
+
+.gameDesc {
+  font-family: "Varela Round", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #444444;
+  margin-top: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.games {
+  /* flex: 9; */
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+  /* background: rgb(0, 0, 0);
+  color: white; */
+}
+
+.gamelink {
+  color: #444444;
+  list-style: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-decoration: underline;
+}
+
+.gamelink:hover {
+  color: gray;
+}

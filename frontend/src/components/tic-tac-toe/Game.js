@@ -6,11 +6,15 @@ class Game extends React.Component{
     render()
     {
         return(
-        <div className="game">
+            <div>
+            <h1 className="ticktactitle">TIC - TAC - TOE</h1>
+        <div className="gameTictactoe">
+            
             <div className="game-board">
                 <Board />
             </div>
             <div className="game-info"></div>
+        </div>
         </div>
         );
         

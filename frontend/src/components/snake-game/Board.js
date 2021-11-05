@@ -1,8 +1,8 @@
+// eslint-disable-next-line
 import React, {useState,useEffect} from 'react'
 import { ReverseLinkedList,randomIntForFood,useInterval,useEvent } from '../../helper';
 import { connect } from 'react-redux';
 import { updateSnakeScore } from '../../redux';
-import axios from 'axios';
 
 const BORDER = 15;
 const PROBABILITY_OF_DIRECTION_REVERSAL_FOOD = 0.3;
@@ -59,7 +59,7 @@ const SnakeBoard = (props) => {
     useEffect(() => {
         let scorefromlocal = localStorage.getItem('snakegame');
         props.updateSnakeScore(scorefromlocal);
-    }, [])
+    }, [props])
 
     // useEffect(() => {
     //     window.addEventListener('keydown',e => {
@@ -204,9 +204,10 @@ const SnakeBoard = (props) => {
 
 
     return (
-        <div>
-            <h1>Score: {score} High Score: {HighScore}</h1>
+        <div className="snakeGame">
+            <h3 className="snakescore">Score: {score} High Score: {HighScore}</h3>
             <div className = "outerBorder">
+            
                 {board.map((row, rowIndx) => (
                     <div key = {rowIndx} className = "row">
                         {row.map((cell, cellIndx) => (
@@ -215,6 +216,7 @@ const SnakeBoard = (props) => {
                     </div>
                 ))}
             </div>
+            <div><h3 style={{fontWeight:400}}>How to play: Use your arrow keys to move the tiles.</h3></div>
         </div>
     );
 };

@@ -1,8 +1,3 @@
-body {
-  font: 14px "Century Gothic", Futura, sans-serif;
-  margin: 20px;
-}
-
 .App {
   text-align: center;
 }
@@ -20,21 +15,29 @@ ul {
 
 .status {
   margin-bottom: 10px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 23px;
+}
+
+.ticktactitle {
+  font-family: "Josefin Sans", sans-serif;
+  margin-top: 30px;
+  font-weight: 400;
 }
 
 .square {
   background: #fff;
   border: 1px solid #999;
   float: left;
-  font-size: 24px;
+  font-size: 38px;
   font-weight: bold;
   line-height: 34px;
-  height: 34px;
+  height: 84px;
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
   text-align: center;
-  width: 34px;
+  width: 84px;
 }
 
 .square:focus {
@@ -45,9 +48,22 @@ ul {
   background: #ddd;
 }
 
-.game {
+.gameTictactoe {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  margin-top: 64px;
+}
+
+.resetButton {
+  padding: 14px;
+  width: 50%;
+  border-radius: 0px !important;
+  border-width: 0;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  margin-left: 50%;
 }
 
 .game-info {
@@ -56,6 +72,16 @@ ul {
 
 /* ------------------------------------------------------------------------- */
 /* snake -game */
+
+.snakeGame {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.snakescore {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: 400;
+}
 
 .snake-app {
   text-align: center;

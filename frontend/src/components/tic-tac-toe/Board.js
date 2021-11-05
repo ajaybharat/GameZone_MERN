@@ -53,8 +53,8 @@ class Board extends React.Component{
         }
         return(
             <div>
-                <button onClick = {this.ResetGame}>Reset</button>
                 <div className="status" >{status}</div>
+                <button className="resetButton" onClick = {this.ResetGame}>Reset</button>
                 <div className="board-row">
                     {this.renderSquare(0)}
                     {this.renderSquare(1)}

@@ -1,9 +1,9 @@
 import axios from "axios";
-import { useContext, useRef, useState } from "react";
-import { Link,Redirect } from "react-router-dom";
+import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import "./login.css";
 import { connect } from 'react-redux'
-import { fetchUsers,fetchUsersSuccess,fetchUsersFailure,fetchUsersRequest } from '../../redux/index'
+import { fetchUsersSuccess,fetchUsersFailure,fetchUsersRequest } from '../../redux/index'
 
 function Login(props) {
   const userRef = useRef();
@@ -15,6 +15,7 @@ function Login(props) {
     e.preventDefault();
     props.fetchuserreq();
     try {
+      
       const res = await axios.post("/auth/login", {
         email: userRef.current.value,
         password: passwordRef.current.value,
@@ -34,8 +35,14 @@ function Login(props) {
     }
   };
 
-  return (
+  if(props.Users.loading || redirectstate) return (<div className="login"><img 
+    className="loading"
+    src="https://static.vecteezy.com/system/resources/previews/001/826/248/non_2x/progress-loading-bar-buffering-download-upload-and-loading-icon-vector.jpg"
+    alt=""
+    /></div>)
+    else return (
     <div className="login">
+      
       <span className="loginTitle">Login</span>
       <form className="loginForm" onSubmit={handleSubmit}>
         <label>Email</label>
@@ -52,15 +59,11 @@ function Login(props) {
           placeholder="Enter your password..."
           ref={passwordRef}
         />
+        <Link className="createAccount" to='/register'>Create Account</Link>
         <button className="loginButton" type="submit" >
           Login
         </button>
       </form>
-      <button className="loginRegisterButton">
-        <Link className="link" to="/register">
-          Register
-        </Link>
-      </button>
     </div>
   );
   
