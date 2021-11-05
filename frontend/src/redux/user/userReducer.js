@@ -2,7 +2,7 @@ import { FETCH_USERS_FAILURE,FETCH_USERS_REQUEST,FETCH_USERS_SUCCESS } from "./u
 
 const initialState = {
     loading: false,
-    user: [],
+    user: JSON.parse(localStorage.getItem('user')) || null,
     error: ''
 }
 

@@ -19,6 +19,13 @@
   width: 40%;
 }
 
+.errorMSG {
+  margin-top: 4px;
+  color: red;
+  /* font-size: 18px; */
+  font-weight: 300;
+}
+
 .createAccount {
   margin-top: 5px;
   margin-right: 38%;

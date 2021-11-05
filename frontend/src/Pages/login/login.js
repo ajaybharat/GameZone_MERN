@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./login.css";
 import { connect } from 'react-redux'
@@ -11,8 +11,15 @@ function Login(props) {
   const [redirectstate,setredirectstate] = useState(false);
 //   const { dispatch, isFetching } = useContext(Context);
 
+
+
+// useEffect(()=> {
+//   props.fetchfailure(errorr);
+// },[props.User]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    props.fetchfailure('');
     props.fetchuserreq();
     try {
       
@@ -31,7 +38,8 @@ function Login(props) {
       setredirectstate(true);
       window.location.replace("/");
     } catch (err) {
-      props.fetchfailure(err);
+      props.fetchfailure('Something went wrong..');
+      setredirectstate(false);
     }
   };
 
@@ -60,6 +68,7 @@ function Login(props) {
           ref={passwordRef}
         />
         <Link className="createAccount" to='/register'>Create Account</Link>
+        {props.Users.error? <span className="errorMSG">{props.Users.error}</span> : ''}
         <button className="loginButton" type="submit" >
           Login
         </button>
@@ -79,7 +88,7 @@ const mapDispatchtoProps = dispatch => {
   return {
       fetchuserreq: () => dispatch(fetchUsersRequest()),
       fetchsuccess: (payload) => dispatch(fetchUsersSuccess(payload)),
-      fetchfailure: () => dispatch(fetchUsersFailure())
+      fetchfailure: (err) => dispatch(fetchUsersFailure(err))
   }
 }
 
