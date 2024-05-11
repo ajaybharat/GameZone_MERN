@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "frontend": "npm start --prefix ./frontend",
+    "dev": "concurrently \"npm run start\" \"npm run frontend\""
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,7 @@
   "homepage": "https://github.com/ajaybharat/GameZone_MERN#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "concurrently": "^8.2.2",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
