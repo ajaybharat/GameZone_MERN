@@ -15,7 +15,7 @@ Gaming application, Built using React, Redux, NodeJS, Mongoose with data structu
 
 4. npm start
 
-## Demo link:   https://github.com/ajaybharat/GameZone_MERN.git
+## Demo link:  https://game-zone-site.netlify.app/
 
 ## Demo web site pictures
 
