@@ -13,7 +13,7 @@ Gaming application, Built using React, Redux, NodeJS, Mongoose with data structu
 
 3. npm install ( to install react dependencies)
 
-4. npm run start
+4. npm start
 
 ## Demo Link: https://game-zone-site.netlify.app/
 
