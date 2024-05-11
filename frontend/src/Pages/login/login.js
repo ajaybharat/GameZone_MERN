@@ -23,10 +23,13 @@ function Login(props) {
     props.fetchuserreq();
     try {
       
-      const res = await axios.post("https://gamezone-user-api.herokuapp.com/api/auth/login", {
-        email: userRef.current.value,
-        password: passwordRef.current.value,
-      });
+      const res = await axios.post(
+        "https://game-zone-mern.vercel.app/api/auth/login",
+        {
+          email: userRef.current.value,
+          password: passwordRef.current.value,
+        }
+      );
       let snakegamescore = res.data.sankeGameScore;
       let game2048 = res.data.Game2048Score;
       console.log(snakegamescore);

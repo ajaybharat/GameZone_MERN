@@ -8,10 +8,13 @@ export default function Topbar() {
         try{
           
             let user_Data = JSON.parse(localStorage.getItem('user'));
-            let res = await axios.put(`https://gamezone-user-api.herokuapp.com/api/user/${user_Data._id}`,{
-                sankeGameScore: localStorage.getItem('snakegame'),
-                Game2048Score: localStorage.getItem('2048game')
-            })
+            let res = await axios.put(
+              `https://game-zone-mern.vercel.app/api/user/${user_Data._id}`,
+              {
+                sankeGameScore: localStorage.getItem("snakegame"),
+                Game2048Score: localStorage.getItem("2048game"),
+              }
+            );
             localStorage.removeItem('snakegame')
             localStorage.removeItem('2048game')
             localStorage.removeItem('user')
